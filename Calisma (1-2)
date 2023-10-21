@@ -1,0 +1,93 @@
+// Calisma 1:
+
+public class Odev3tekrar1 {
+    
+    public static void main(String[] args) {
+        
+
+        /*
+          Yazilimda bir cok farkli turde hata meydana gelebilir. Bunlara ornek olarak :
+          - Compile-Time Errors 
+          - Run-Time Errors
+          - Build-Time Errors   , gosterebiliriz. Hatalarin meydana gelmesini engellemek veya 
+            azaltmak icin kodu daha duzenli yazip, daha iyi ve dikkatle algoritmalar olusturup,
+            mumkun oldugunca kodu daha basit halde yazip calistirmadan once debug yaparak hatanin 
+            nerede oldugu bulunabilir.
+
+         */
+
+    // Calisma 2:
+    
+    // Yazdigim random fonksiyonunu main methodunda yazdirilmasini sagliyorum:
+      System.out.println("1. Zar :\n"+randomNum());
+      System.out.println("2. Zar :\n"+randomNum());
+
+    }
+
+    public static String randomNum(){
+       double number = Math.random()*6+1;
+       /*  Math random methodu tam deger vermedigi icin +1 ekliyorum. Bunu bir cok farkli sekilde
+           yazmak mumkun +1' i orada degilde :
+           double number = Math.random()*6;
+           number +=1;
+           seklinde de yazilabilir.
+       */
+
+       switch ((int)number) {
+
+        // Her bir sayi icin zarin farkli bir tarafinin gorselini tanimladim.
+        case 1:
+        return
+
+        "  *   *  \n"+
+        "  *   *  \n"+
+        "  *   *  \n";
+
+
+        case 2:
+        return
+
+        
+        "  *   *  \n"+
+        "    *  \n"+
+        "  *   *  \n";
+
+        case 3:
+        return
+
+         
+        "  *   *  \n"+
+        "         \n"+
+        "  *   *  \n";
+
+        case 4:
+        return
+
+         "  *     \n"+
+         "    *  \n"+
+         "      *  \n";
+
+         case 5:
+         return
+
+           
+        "  *     \n"+
+        "        \n"+
+        "      *  \n";
+
+        case 6:
+        return
+
+       "       \n"+
+       "    *    \n"+
+       "        \n";
+
+        default:
+        
+           
+       }
+       return randomNum();
+ 
+       
+    }
+}
