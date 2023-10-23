@@ -1,0 +1,47 @@
+//Calisma 3:
+import javax.swing.JOptionPane;
+
+public class Odev3tekrar2 {
+
+    public static void main(String[] args) {
+        JOptionPane.showMessageDialog(null, "1 ile 100 arasında rastgele bir sayı seçildi. Tahmininizi girin.");
+        int tahmin = 0;
+        int randomSayi = randomNum();
+        //Sistemin random sayi uretmesi icin daha once yazmis oldugum kodu main methodunda cagiriyorum.
+        System.out.println(randomSayi);
+        // Random sayinin ne oldugunu bilmek ve sistemin dogru calisip calismadigini anlamak icin random sayiyi yazdiriyorum.
+        //Dogru cevap bulununcaya kadar islemlerin tekrar edilmesi icin do- while methodunu kullaniyorum .
+        do {
+            try {
+                String tahminMetni = JOptionPane.showInputDialog("Tahmin : ");
+                tahmin = Integer.parseInt(tahminMetni);
+                //Belli kosullar tanimliyorum ki sistem gecersiz bir sayi uretmesin ve urettigi sayi istenilen araliklarda olsun.
+                if (tahmin > 100 || tahmin < 1) {
+                    JOptionPane.showMessageDialog(null, "Geçersiz giriş! Başka bir değer girin!");
+                } else if (tahmin < randomSayi) {
+                    JOptionPane.showMessageDialog(null, "Daha yüksek bir değer giriniz!");
+                } else if (tahmin > randomSayi) {
+                    JOptionPane.showMessageDialog(null, "Daha küçük bir sayi giriniz!");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Tebrikler, doğru cevap." +tahmin);
+                    break;
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Geçersiz giriş! Bir sayı girin!");
+                break;
+            }
+
+        } while (true);
+        int devam = JOptionPane.showConfirmDialog(null, "Tekrar oynamak ister misiniz?", "Oyun Bitti", JOptionPane.YES_NO_OPTION);
+        if (devam == JOptionPane.YES_OPTION) {
+            main(null); // Yeni oyun başlat
+        } else {
+            JOptionPane.showMessageDialog(null, "Teşekkür ederiz. İyi günler!");
+        }
+    }
+// Random sayiyi ureten fonksiyon:
+    public static int randomNum() {
+        double sayi = Math.random() * 100 + 1;
+        return (int) sayi;
+    }
+}
