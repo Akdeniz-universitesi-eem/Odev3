@@ -34,7 +34,7 @@ public class Odev3tekrar2 {
         } while (true);
         int devam = JOptionPane.showConfirmDialog(null, "Tekrar oynamak ister misiniz?", "Oyun Bitti", JOptionPane.YES_NO_OPTION);
         if (devam == JOptionPane.YES_OPTION) {
-            main(null); // Yeni oyun başlat
+            main(null);
         } else {
             JOptionPane.showMessageDialog(null, "Teşekkür ederiz. İyi günler!");
         }
