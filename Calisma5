@@ -1,0 +1,52 @@
+// Calisma 5 :
+import java.util.Scanner;
+
+public class Odev3tekrar4 {
+        public static void main(String[] args) {
+
+                Scanner scan = new Scanner(System.in);
+                //Sisteme bir sayi girisi yapilmasi  isteniyor:
+                System.out.println("Sisteme bir sayi girisi yapin: ");
+                int sayi = scan.nextInt();
+
+                //Altta yazilmis olan fonkisyonlari cagirip yazdirilmasini sagliyorum.
+                boolean sonuc = isPrimeX(sayi);
+                System.out.println("isPrimeX sonucu : " + sonuc);
+            
+        }
+    
+        //Bir sayinin asal olup olmadigini kontrol eden fonksiyon:
+        public static boolean asalSayi(int sayi) {
+            if (sayi <= 1) {
+                return false;
+            }
+            for (int i = 2; i <= Math.sqrt(sayi); i++) {
+                if (sayi % i == 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    
+        // Asal olan sayinin basamaklarini toplayan fonksiyon:
+        public static int toplamBasamak(int sayi) {
+            int toplam = 0;
+            while (sayi > 0) {
+                toplam += sayi % 10;
+                sayi /= 10;
+            }
+            return toplam;
+        }
+    
+        // Asal olan sayiyi en sonda tek basamakli sayi kalincaya kadar basamaklarini toplayan fonksiyon:
+        public static boolean isPrimeX(int sayi) {
+            while (sayi > 9) {
+                if (!asalSayi(sayi)) {
+                    return false;
+                }
+                sayi = toplamBasamak(sayi);
+            }
+            return asalSayi(sayi);
+        }
+    }
+    
