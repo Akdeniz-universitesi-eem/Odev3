@@ -1,0 +1,52 @@
+// Calisma 4 :
+public class Odev3tekrar3 {
+
+    public static void main(String[] args) {
+
+        // Uc basamakli sayilar istendigi icin 'abc' yi 100 ile 999 araliginda aliyorum.
+        for (int abc = 100; abc <= 999; abc++) {
+
+             /*
+             Alttaki kod 'abc' olarak alinan bir sayisal degeri ilk once metin haline getirip, daha sonra
+             'cba' olarak cevirip ve daha sonra yeniden sayisal deger olarak sistemin okumasini saglar.
+             */
+            int cba = Integer.parseInt(new StringBuilder(String.valueOf(abc)).reverse().toString());
+            if (cba > abc && asalSayi(abc) && asalSayi(cba)) {
+                //Belirli kosullar dogrultusunda istenilen sayilarin asal olup olmadigini kontrol ediliyor.
+                int ab = abc / 10;
+                int bc = abc % 100;
+                int cb = cba / 10;
+                int ba = cba % 100;
+                
+                if (asalSayi(ab) && asalSayi(bc) && asalSayi(cb) && asalSayi(ba)) {
+                    System.out.println(abc);
+                }
+            }
+        }
+    }
+    
+
+    public static boolean asalSayi(int sayi) {
+        /*
+         Internet uzerinden bakildiginda bir sayinin asal olup olmadigini kontrol eden kod olarak
+         'isPrimeX' kodu cikiyor. Bunu kendi yazdigim koda uyarlayip uzerinde degisiklikler yaptim.
+         Eger bizden istenen aralik '2' ile herhangi bir 'x'  araliginda olsaydi altta yorum satiri olarak
+         belirttigim kosullarin da olmasi gerekirdi. Ama kontrol edilmesi istenen sayilar uc basamakli oldugu icin 
+         yazmis oldugum kosullari yorum satiri olarak belirttim.
+         */
+      /*  if (num <= 1) {
+            return false;
+        }
+        if (num <= 3) {
+            return true;
+        }
+     */  
+    // 'i'nin max degerinin 5 mi 7 mi olmasi konusunda kararsizim.
+        for (int i = 2; i <=7; i++) {
+            if (sayi % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
